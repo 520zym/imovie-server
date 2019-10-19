@@ -2,8 +2,7 @@ package com.imovie.test;
 
 import com.imovie.bean.TestMyBatis;
 import com.imovie.mapper.MybatisTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.imovie.util.SpringBeanUtil;
 
 /**
  * @Author: zym
@@ -14,8 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  **/
 public class MyBatisTest {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        MybatisTest mybatisTest = context.getBean(MybatisTest.class);
+        MybatisTest mybatisTest = SpringBeanUtil.getContext().getBean(MybatisTest.class);
         TestMyBatis batis = new TestMyBatis();
         batis.setName("name_mapper");
         batis.setAge("age_mapper");
