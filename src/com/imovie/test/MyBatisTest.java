@@ -1,7 +1,7 @@
 package com.imovie.test;
 
 import com.imovie.bean.TestMyBatis;
-import com.imovie.mapper.MybatisTest;
+import com.imovie.dao.MybatisTest;
 import com.imovie.util.SpringBeanUtil;
 
 /**

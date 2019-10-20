@@ -59,7 +59,7 @@
     <!--  扫描mapper接口类, 并将接口类与xml文件关联  -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--   指定mapper接口类存放的位置   -->
-        <property name="basePackage" value="com.imovie.mapper"/>
+        <property name="basePackage" value="com.imovie.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
         <!--  指定标注才扫描成为Mapper  -->
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>

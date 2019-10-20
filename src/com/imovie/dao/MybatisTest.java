@@ -1,4 +1,4 @@
-package com.imovie.mapper;
+package com.imovie.dao;
 
 import com.imovie.bean.TestMyBatis;
 import org.springframework.stereotype.Repository;
