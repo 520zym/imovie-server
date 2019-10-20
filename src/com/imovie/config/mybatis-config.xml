@@ -3,10 +3,10 @@
 
 <configuration>
     <typeAliases>
-        <typeAlias alias="TestBatis" type="com.imovie.bean.TestMyBatis"/>
+        <typeAlias type="com.imovie.bean.UsrBean" alias="usrBean"/>
     </typeAliases>
 
     <mappers>
-        <mapper resource="com/imovie/mapper/MyBatisTest.xml"/>
+        <mapper resource="com/imovie/mapper/usrDAO.xml"/>
     </mappers>
 </configuration>
