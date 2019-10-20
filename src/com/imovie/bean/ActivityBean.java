@@ -13,15 +13,15 @@ import java.io.Serializable;
  **/
 @Component
 public class ActivityBean implements Serializable {
-    private static final long serialVersionUID = -8228719607274057543L;
+    private static final long serialVersionUID = 7740530161745608635L;
 
-    private String act_id;
-    private String act_type;
-    private String act_usr;
-    private String act_content;
-    private String act_imageRef;
-    private String act_movie;
-    private String act_label;
+    private String act_id;         //每个动态的唯一标识, 自增吧
+    private String act_type;       //动态的类型, 0=>彩蛋, 1=>故事, 2=>观后感
+    private String act_usr;        //动态发布者的ID, 对应着 usr_id
+    private String act_content;    //动态主体内容
+    private String act_imageRef;   //图片参考索引值, 在表imageRef中, 每个imageRef对应一组图片的url
+    private String act_movie;      //此次动态所对应的电影的movie_id
+    private String act_label;      //此次动态的分类标签, 与act_type相对应
 
     public String getAct_id() {
         return act_id;
@@ -37,6 +37,20 @@ public class ActivityBean implements Serializable {
 
     public void setAct_type(String act_type) {
         this.act_type = act_type;
+        switch (this.act_type) {
+            case "0":
+                this.act_label = "彩蛋";
+                break;
+            case "1":
+                this.act_label = "故事";
+                break;
+            case "2":
+                this.act_label = "观后感";
+                break;
+            default:
+                this.act_label = "Hello World!";
+                break;
+        }
     }
 
     public String getAct_usr() {
@@ -76,15 +90,6 @@ public class ActivityBean implements Serializable {
     }
 
     public void setAct_label(String act_label) {
-        switch (act_label) {
-            case "0":
-                this.act_label = "彩蛋";
-            case "1":
-                this.act_label = "故事";
-            case "2":
-                this.act_label = "观后感";
-            default:
-                this.act_label = "Hello World!";
-        }
+        this.act_label = act_label;
     }
 }

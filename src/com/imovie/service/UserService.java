@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class UserService {
-    private static Logger logger = LogManager.getLogger(UserService.class);
+    private static final Logger logger = LogManager.getLogger(UserService.class);
     private static final ApplicationContext applicationContext = SpringBeanUtil.getContext();
 
     /// 注册

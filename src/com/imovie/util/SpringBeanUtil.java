@@ -16,7 +16,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  * @Version: 1.0
  **/
 public class SpringBeanUtil implements ApplicationContextAware {
-    private static Logger logger = LogManager.getLogger(SpringBeanUtil.class);
+    private static final Logger logger = LogManager.getLogger(SpringBeanUtil.class);
     private static ApplicationContext context;
 
     static {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imovie.dao.ActivityDAO">
+    <insert id="postActivity" parameterType="activityBean">
+        insert into activity(act_type, act_usr, act_content, act_imageRef, act_movie, act_label)
+        values (#{act_type}, #{act_usr}, #{act_content}, #{act_imageRef}, #{act_movie}, #{act_label})
+    </insert>
+
+    <select id="getActivities" resultType="activityBean">
+        select * from activity
+    </select>
+</mapper>

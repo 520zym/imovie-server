@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UsrController {
     @ResponseBody
-    @RequestMapping(value = "/register")
+    @RequestMapping(value = "/user/register")
     public String usrRegister(@RequestParam String uid, @RequestParam String name, @RequestParam String head, @RequestParam String gender) {
         return "{\"result\": \"" + UserService.Register(uid, name, head, gender) + "\"}";
     }
