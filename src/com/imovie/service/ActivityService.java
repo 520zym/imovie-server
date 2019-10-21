@@ -8,8 +8,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -22,21 +20,21 @@ import java.util.List;
 @Service
 public class ActivityService {
     private static final Logger logger = LogManager.getLogger(ActivityService.class);
-    private static final ApplicationContext applicationContext = SpringBeanUtil.getContext();
+    private static final ApplicationContext APPLICATION_CONTEXT = SpringBeanUtil.getContext();
 
     public static int postActivity(String actType, String actUsr, String actContent, String actImageRef, String actMovie) {
         ActivityBean activityBean = new ActivityBean();
-        activityBean.setAct_type(actType);
-        activityBean.setAct_usr(actUsr);
-        activityBean.setAct_content(actContent);
-        activityBean.setAct_movie(actMovie);
-        activityBean.setAct_imageRef(actImageRef);
+        activityBean.setActType(actType);
+        activityBean.setActUsr(actUsr);
+        activityBean.setActContent(actContent);
+        activityBean.setActMovie(actMovie);
+        activityBean.setActImageRef(actImageRef);
         logger.info("actImageRef=[" + actImageRef + "].");
-        return applicationContext.getBean(ActivityDAO.class).postActivity(activityBean);
+        return APPLICATION_CONTEXT.getBean(ActivityDAO.class).postActivity(activityBean);
     }
 
     public static List<ActivityBean> getActivities(String begin, String offset, String orderColumn) {
-        List<ActivityBean> activityBeanList = applicationContext.getBean(ActivityDAO.class).getActivities(begin, offset, orderColumn);
+        List<ActivityBean> activityBeanList = APPLICATION_CONTEXT.getBean(ActivityDAO.class).getActivities(begin, offset, orderColumn);
         logger.info("activityList's size is [" + activityBeanList.size() + "]");
         return activityBeanList;
     }

@@ -11,10 +11,10 @@ import java.util.UUID;
  **/
 public class FunctionTest {
     public static void main(String[] args) {
-        generateID();
+        generateId();
     }
 
-    private static void generateID() {
+    private static void generateId() {
         System.out.println(UUID.randomUUID());
         System.out.println(System.currentTimeMillis());
     }

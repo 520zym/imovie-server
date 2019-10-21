@@ -18,7 +18,7 @@ public class UsrController {
     @ResponseBody
     @RequestMapping(value = "/user/register")
     public String usrRegister(@RequestParam String uid, @RequestParam String name, @RequestParam String head, @RequestParam String gender) {
-        return "{\"result\": \"" + UserService.Register(uid, name, head, gender) + "\"}";
+        return "{\"result\": \"" + UserService.register(uid, name, head, gender) + "\"}";
     }
 
     @ResponseBody

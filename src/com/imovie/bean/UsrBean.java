@@ -15,94 +15,94 @@ import java.io.Serializable;
 public class UsrBean implements Serializable {
     private static final long serialVersionUID = 8126012199000654196L;
 
-    private String usr_id;
-    private String usr_uid;
-    private String usr_name;
-    private String usr_head;
-    private String usr_gender;
-    private String usr_reg;
-    private String usr_profile;
-    private String usr_eggs;
-    private String usr_stories;
-    private String usr_feelings;
+    private String usrId;
+    private String usrUid;
+    private String usrName;
+    private String usrHead;
+    private String usrGender;
+    private String usrReg;
+    private String usrProfile;
+    private String usrEggs;
+    private String usrStories;
+    private String usrFeelings;
 
-    public String getUsr_id() {
-        return usr_id;
+    public String getUsrId() {
+        return usrId;
     }
 
-    public void setUsr_id(String usr_id) {
-        this.usr_id = usr_id;
+    public void setUsrId(String usrId) {
+        this.usrId = usrId;
     }
 
-    public String getUsr_uid() {
-        return usr_uid;
+    public String getUsrUid() {
+        return usrUid;
     }
 
-    public void setUsr_uid(String usr_uid) {
-        this.usr_uid = usr_uid;
+    public void setUsrUid(String usrUid) {
+        this.usrUid = usrUid;
     }
 
-    public String getUsr_name() {
-        return usr_name;
+    public String getUsrName() {
+        return usrName;
     }
 
-    public void setUsr_name(String usr_name) {
-        this.usr_name = usr_name;
+    public void setUsrName(String usrName) {
+        this.usrName = usrName;
     }
 
-    public String getUsr_head() {
-        return usr_head;
+    public String getUsrHead() {
+        return usrHead;
     }
 
-    public void setUsr_head(String usr_head) {
-        this.usr_head = usr_head;
+    public void setUsrHead(String usrHead) {
+        this.usrHead = usrHead;
     }
 
-    public String getUsr_gender() {
-        return usr_gender;
+    public String getUsrGender() {
+        return usrGender;
     }
 
-    public void setUsr_gender(String usr_gender) {
-        this.usr_gender = usr_gender;
+    public void setUsrGender(String usrGender) {
+        this.usrGender = usrGender;
     }
 
-    public String getUsr_reg() {
-        return usr_reg;
+    public String getUsrReg() {
+        return usrReg;
     }
 
-    public void setUsr_reg(String usr_reg) {
-        this.usr_reg = usr_reg;
+    public void setUsrReg(String usrReg) {
+        this.usrReg = usrReg;
     }
 
-    public String getUsr_profile() {
-        return usr_profile;
+    public String getUsrProfile() {
+        return usrProfile;
     }
 
-    public void setUsr_profile(String usr_profile) {
-        this.usr_profile = usr_profile;
+    public void setUsrProfile(String usrProfile) {
+        this.usrProfile = usrProfile;
     }
 
-    public String getUsr_eggs() {
-        return usr_eggs;
+    public String getUsrEggs() {
+        return usrEggs;
     }
 
-    public void setUsr_eggs(String usr_eggs) {
-        this.usr_eggs = usr_eggs;
+    public void setUsrEggs(String usrEggs) {
+        this.usrEggs = usrEggs;
     }
 
-    public String getUsr_stories() {
-        return usr_stories;
+    public String getUsrStories() {
+        return usrStories;
     }
 
-    public void setUsr_stories(String usr_stories) {
-        this.usr_stories = usr_stories;
+    public void setUsrStories(String usrStories) {
+        this.usrStories = usrStories;
     }
 
-    public String getUsr_feelings() {
-        return usr_feelings;
+    public String getUsrFeelings() {
+        return usrFeelings;
     }
 
-    public void setUsr_feelings(String usr_feelings) {
-        this.usr_feelings = usr_feelings;
+    public void setUsrFeelings(String usrFeelings) {
+        this.usrFeelings = usrFeelings;
     }
 }

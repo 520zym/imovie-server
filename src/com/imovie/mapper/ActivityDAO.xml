@@ -4,7 +4,7 @@
 <mapper namespace="com.imovie.dao.ActivityDAO">
     <insert id="postActivity" parameterType="activityBean">
         insert into activity(act_type, act_usr, act_content, act_imageRef, act_movie, act_label)
-        values (#{act_type}, #{act_usr}, #{act_content}, #{act_imageRef}, #{act_movie}, #{act_label})
+        values (#{actType}, #{actUsr}, #{actContent}, #{actImageRef}, #{actMovie}, #{actLabel})
     </insert>
 
     <select id="getActivities" resultType="activityBean">

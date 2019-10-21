@@ -26,7 +26,6 @@ public class ActivityController {
 
     @ResponseBody
     @RequestMapping(value = "/activity/get")
-    // TODO: select语句还需要联合reputation表以及imageRef表, 还有usrInfo表, movieinfo表
     public List<ActivityBean> getActivities(@RequestParam String begin, @RequestParam String offset, @RequestParam(defaultValue = "reputation") String orderColumn) {
         return ActivityService.getActivities(begin, offset, orderColumn);
     }
