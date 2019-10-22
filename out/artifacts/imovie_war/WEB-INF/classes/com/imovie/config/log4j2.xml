@@ -13,10 +13,15 @@
     </appenders>
 
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
-    <loggers>
+    <Loggers>
+        <!--  输出 sql 语句  -->
+        <logger name="imovie.dao" level="DEBUG" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
         <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
         <root level="all">
             <appender-ref ref="Console"/>
         </root>
-    </loggers>
+    </Loggers>
 </configuration>

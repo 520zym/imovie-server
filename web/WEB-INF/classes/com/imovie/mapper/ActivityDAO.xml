@@ -2,12 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.imovie.dao.ActivityDAO">
+    <resultMap id="ACTIVITY" type="activityBean">
+        <id column="act_id" property="actId" javaType="String"/>
+        <result column="act_type" property="actType" javaType="String"/>
+        <result column="act_usr" property="actUsr" javaType="String"/>
+        <result column="act_content" property="actContent" javaType="String"/>
+        <result column="act_imageRef" property="actImageRef" javaType="String"/>
+        <result column="act_movie" property="actMovie" javaType="String"/>
+        <result column="act_label" property="actLabel" javaType="String"/>
+    </resultMap>
+
     <insert id="postActivity" parameterType="activityBean">
         insert into activity(act_type, act_usr, act_content, act_imageRef, act_movie, act_label)
         values (#{actType}, #{actUsr}, #{actContent}, #{actImageRef}, #{actMovie}, #{actLabel})
     </insert>
 
-    <select id="getActivities" resultType="activityBean">
-        select * from activity order by #{param3} desc limit #{param1}, #{param2}
+    <select id="getActivities" resultMap="ACTIVITY">
+        select * from activity order by ${param3} desc limit ${param1}, ${param2}
     </select>
 </mapper>
