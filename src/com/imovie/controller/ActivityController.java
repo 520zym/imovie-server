@@ -18,12 +18,32 @@ import java.util.List;
  **/
 @Controller
 public class ActivityController {
+    /**
+     * 发布动态
+     * @author zym
+     * @date 2019/10/23 18:08
+     * @param actType 动态类型
+     * @param actUsr 发布者
+     * @param actContent 发布内容
+     * @param actImageRef 图片
+     * @param actMovie 关联电影
+     * @return java.lang.String
+     **/
     @ResponseBody
     @RequestMapping(value = "/activity/post")
     public String postActivity(@RequestParam String actType, @RequestParam String actUsr, @RequestParam String actContent, String actImageRef, @RequestParam String actMovie) {
         return "{\"result\": \"" + ActivityService.postActivity(actType, actUsr, actContent, actImageRef, actMovie) + "\"}";
     }
 
+    /**
+     * 获取动态列表
+     * @author zym
+     * @date 2019/10/23 18:12
+     * @param begin 列表开始的下标
+     * @param offset 列表size, 多少条动态
+     * @param orderColumn 排序列名
+     * @return java.util.List<com.imovie.bean.ActivityBean>
+     **/
     @ResponseBody
     @RequestMapping(value = "/activity/get")
     public List<ActivityBean> getActivities(@RequestParam String begin, @RequestParam String offset, @RequestParam(defaultValue = "reputation") String orderColumn) {

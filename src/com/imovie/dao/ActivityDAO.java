@@ -16,17 +16,17 @@ import java.util.List;
 public interface ActivityDAO {
     /**
      * 发布新的动态
-     * @Param: [activityBean]
-     * @Return: int
-     * @throws: null
+     * @param activityBean 动态实体
+     * @return int
      **/
     int postActivity(ActivityBean activityBean);
 
     /**
      * 获取一系列动态(比如,刷新的动作), orderBy默认为reputation, 规则为降序desc
-     * @Param: [begin, offset, orderColumn]
-     * @Return: List<ActivityBean>
-     * @throws: null
+     * @param begin 起始
+     * @param offset 偏移
+     * @param orderColumn 排序列名
+     * @return List<ActivityBean>
      **/
     List<ActivityBean> getActivities(String begin, String offset, String orderColumn);
 

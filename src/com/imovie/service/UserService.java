@@ -21,12 +21,14 @@ public class UserService {
     private static final ApplicationContext APPLICATION_CONTEXT = SpringBeanUtil.getContext();
 
     /**
-     * @Author: zym
-     * @Description: 注册
-     * @Date: 2019/10/21 11:48
-     * @Param: [uid, name, head, gender]
+     * 注册
+     * @author zym
+     * @date 2019/10/21 11:48
+     * @param uid 32位ID
+     * @param name 昵称
+     * @param head 头像链接
+     * @param gender 性别
      * @Return: int
-     * @throws:
      **/
     public static int register(String uid, String name, String head, String gender) {
         UsrBean usrBean = new UsrBean();
@@ -39,12 +41,15 @@ public class UserService {
     }
 
     /**
-     * @Author: zym
-     * @Description: 修改个人信息
-     * @Date: 2019/10/21 11:48
-     * @Param: [name, head, gender, profile, id]
-     * @Return: int
-     * @throws:
+     * 修改个人信息
+     * @author zym
+     * @date 2019/10/21 11:48
+     * @param name 昵称
+     * @param head 头像链接
+     * @param gender 性别
+     * @param profile 用户简介
+     * @param id 用户唯一识别ID
+     * @return java.lang.String
      **/
     public static int modifyInfo(String name, String head, String gender, String profile, String id) {
         UsrBean usrBean = new UsrBean();

@@ -10,18 +10,19 @@ import org.springframework.stereotype.Repository;
 public interface UsrDAO {
     /**
      * 用户首次第三方登录,需要将自己的信息插入数据库
-     * @Date: 2019/10/21 11:45
-     * @Param: [usrBean]
-     * @Return: int
+     * @author zym
+     * @date 2019/10/21 11:45
+     * @param usrBean 用户信息实体
+     * @return int
      **/
     int usrRegister(UsrBean usrBean);
     
     /**
      * 修改个人信息
-     * @Date: 2019/10/21 11:50
-     * @Param: [usrBean]
-     * @Return: int
-     * @throws:
+     * @author zym
+     * @date 2019/10/21 11:50
+     * @param usrBean 用户信息实体
+     * @return int
      **/
     int modifyInfo(UsrBean usrBean);
 }
