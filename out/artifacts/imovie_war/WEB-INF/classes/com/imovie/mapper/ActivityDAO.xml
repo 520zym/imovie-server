@@ -10,6 +10,10 @@
         <result column="act_imageRef" property="actImageRef" javaType="String"/>
         <result column="act_movie" property="actMovie" javaType="String"/>
         <result column="act_label" property="actLabel" javaType="String"/>
+        <result column="shareEgg" property="shareNum" javaType="String"/>
+        <result column="chatStory" property="chatNum" javaType="String"/>
+        <result column="likeFeeling" property="likeNum" javaType="String"/>
+        <result column="postTime" property="postTime" javaType="String"/>
     </resultMap>
 
     <insert id="postActivity" parameterType="activityBean">
@@ -18,6 +22,8 @@
     </insert>
 
     <select id="getActivities" resultMap="ACTIVITY">
-        select * from activity order by ${param3} desc limit ${param1}, ${param2}
+        select act_id, act_type, act_usr, act_content, act_imageRef, act_movie, act_label, shareEgg, chatStory, likeFeeling, postTime
+        from activity, reputation where act_id = referID
+        order by ${param3} desc limit ${param1}, ${param2}
     </select>
 </mapper>

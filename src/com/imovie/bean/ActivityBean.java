@@ -24,11 +24,51 @@ public class ActivityBean implements Serializable {
     /**动态主体内容*/
     private String actContent;
     /**图片参考索引值, 在表imageRef中, 每个imageRef对应一组图片的url*/
-    private String actImageRef;
+    private String actImageNum;
     /**此次动态所对应的电影的movie_id*/
     private String actMovie;
     /**此次动态的分类标签, 与act_type相对应*/
     private String actLabel;
+    /**此次动态的分享量*/
+    private String shareNum;
+    /**此次动态的评论量*/
+    private String chatNum;
+    /**此次动态的点赞量*/
+    private String likeNum;
+    /**此次动态的发布时间*/
+    private String postTime;
+
+    public String getShareNum() {
+        return shareNum;
+    }
+
+    public void setShareNum(String shareNum) {
+        this.shareNum = shareNum;
+    }
+
+    public String getChatNum() {
+        return chatNum;
+    }
+
+    public void setChatNum(String chatNum) {
+        this.chatNum = chatNum;
+    }
+
+    public String getLikeNum() {
+        return likeNum;
+    }
+
+    public void setLikeNum(String likeNum) {
+        this.likeNum = likeNum;
+    }
+
+    public String getPostTime() {
+        return postTime;
+    }
+
+    public void setPostTime(String postTime) {
+        this.postTime = postTime;
+    }
 
     public String getActId() {
         return actId;
@@ -76,12 +116,12 @@ public class ActivityBean implements Serializable {
         this.actContent = actContent;
     }
 
-    public String getActImageRef() {
-        return actImageRef;
+    public String getActImageNum() {
+        return actImageNum;
     }
 
-    public void setActImageRef(String actImageRef) {
-        this.actImageRef = actImageRef;
+    public void setActImageNum(String actImageNum) {
+        this.actImageNum = actImageNum;
     }
 
     public String getActMovie() {

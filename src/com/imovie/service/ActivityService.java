@@ -8,7 +8,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: zym
@@ -29,19 +31,32 @@ public class ActivityService {
      * @param actType 动态类型
      * @param actUsr 发布者ID
      * @param actContent 主体内容
-     * @param actImageRef 图片
+     * @param actImageNum 图片
      * @param actMovie 关联电影
      * @return int
      **/
-    public static int postActivity(String actType, String actUsr, String actContent, String actImageRef, String actMovie) {
+    public static int postActivity(String actType, String actUsr, String actContent, String actImageNum, String actMovie, List<String> imageUrls) {
         ActivityBean activityBean = new ActivityBean();
         activityBean.setActType(actType);
         activityBean.setActUsr(actUsr);
         activityBean.setActContent(actContent);
         activityBean.setActMovie(actMovie);
-        activityBean.setActImageRef(actImageRef);
-        logger.info("actImageRef=[" + actImageRef + "].");
-        return APPLICATION_CONTEXT.getBean(ActivityDAO.class).postActivity(activityBean);
+        activityBean.setActImageNum(actImageNum);
+
+        ActivityDAO activityDAO = APPLICATION_CONTEXT.getBean(ActivityDAO.class);
+        /*动态信息插入activity表*/
+        int insertAct = activityDAO.postActivity(activityBean);
+        /*获取其ID*/
+        String actId = activityDAO.getActId();
+        logger.info("The new actId is [" + actId + "].");
+        /*插入图片信息*/
+        logger.info("The images is [" + imageUrls + "]");
+        int insertImage = activityDAO.postImages(actId, imageUrls);
+
+        if (insertAct > 0 && insertImage > 0) {
+            return 1;
+        }
+        return 0;
     }
 
     /**
@@ -53,9 +68,14 @@ public class ActivityService {
      * @param orderColumn 排序列名
      * @return List<ActivityBean>
      **/
-    public static List<ActivityBean> getActivities(String begin, String offset, String orderColumn) {
+    public static Map<String, ActivityBean> getActivities(String begin, String offset, String orderColumn) {
+        Map<String, ActivityBean> activityBeanMap = new LinkedHashMap<>();
         List<ActivityBean> activityBeanList = APPLICATION_CONTEXT.getBean(ActivityDAO.class).getActivities(begin, offset, orderColumn);
+        for (ActivityBean activity: activityBeanList) {
+            activityBeanMap.put(activity.getActId(), activity);
+        }
+
         logger.info("activityList's size is [" + activityBeanList.size() + "]");
-        return activityBeanList;
+        return activityBeanMap;
     }
 }

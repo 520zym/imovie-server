@@ -7,17 +7,33 @@
         <result column="act_type" property="actType" javaType="String"/>
         <result column="act_usr" property="actUsr" javaType="String"/>
         <result column="act_content" property="actContent" javaType="String"/>
-        <result column="act_imageRef" property="actImageRef" javaType="String"/>
+        <result column="act_imageRef" property="actImageNum" javaType="String"/>
         <result column="act_movie" property="actMovie" javaType="String"/>
         <result column="act_label" property="actLabel" javaType="String"/>
+        <result column="shareEgg" property="shareNum" javaType="String"/>
+        <result column="chatStory" property="chatNum" javaType="String"/>
+        <result column="likeFeeling" property="likeNum" javaType="String"/>
+        <result column="postTime" property="postTime" javaType="String"/>
     </resultMap>
 
     <insert id="postActivity" parameterType="activityBean">
-        insert into activity(act_type, act_usr, act_content, act_imageRef, act_movie, act_label)
-        values (#{actType}, #{actUsr}, #{actContent}, #{actImageRef}, #{actMovie}, #{actLabel})
+        insert into activity(act_type, act_usr, act_content, act_imageNum, act_movie, act_label)
+        values (#{actType}, #{actUsr}, #{actContent}, #{actImageNum}, #{actMovie}, #{actLabel})
+    </insert>
+
+    <select id="getActId" resultType="string">
+        select last_insert_id()
+    </select>
+
+    <insert id="postImages">
+        <foreach collection="imageUrls" item="image_url" index="index" separator=";">
+            insert into images(image_refer, image_type, image_url) values(#{param1}, '0', #{image_url})
+        </foreach>
     </insert>
 
     <select id="getActivities" resultMap="ACTIVITY">
-        select * from activity order by ${param3} desc limit ${param1}, ${param2}
+        select act_id, act_type, act_usr, act_content, act_imageNum, act_movie, act_label, shareEgg, chatStory, likeFeeling, postTime
+        from activity, reputation where act_id = referID
+        order by ${param3} desc limit ${param1}, ${param2}
     </select>
 </mapper>

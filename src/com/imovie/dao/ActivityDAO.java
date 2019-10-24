@@ -1,6 +1,7 @@
 package com.imovie.dao;
 
 import com.imovie.bean.ActivityBean;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,11 +16,25 @@ import java.util.List;
 @Repository
 public interface ActivityDAO {
     /**
-     * 发布新的动态
+     * 发布新的动态, 第一步, 将信息插入 activity 表中
      * @param activityBean 动态实体
      * @return int
      **/
     int postActivity(ActivityBean activityBean);
+
+    /**
+     * 发布新动态, 第二步, 获取新插入的动态的ID
+     * @return String
+     */
+    String getActId();
+
+    /**
+     * 发布新动态, 第三步, 将图片插入到 images表中
+     * @param actId 动态ID
+     * @param imageUrls 图片链接
+     * @return int
+     */
+    int postImages(String actId, @Param("imageUrls") List<String> imageUrls);
 
     /**
      * 获取一系列动态(比如,刷新的动作), orderBy默认为reputation, 规则为降序desc
