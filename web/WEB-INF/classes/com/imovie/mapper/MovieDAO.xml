@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imovie.dao.MovieDAO">
+    <select id="getMovies" resultType="movieBean">
+        select movieID, movieName, movieType, movieCountry,
+               movieLanguage, movieDate, movieCount, movieTime, movieAlias, movieProfile,
+               shareEgg, chatStory, likeFeeling, reputation
+        from movieinfo, reputation
+        where movieID=referID
+        order by reputation desc limit ${param1}, ${param2}
+    </select>
+</mapper>
