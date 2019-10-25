@@ -58,7 +58,6 @@ public class ActivityService {
             String actId = ACTIVITY_DAO.getActId();
             LOGGER.info("The new actId is [" + actId + "].");
             /*保存图片, 并获取新的文件名*/
-            LOGGER.debug("Begin to save image.");
             List<String> imageNames = ImageUtil.saveImageFileList(imageFiles);
             /*插入图片信息*/
             LOGGER.info("The images is " + imageNames);

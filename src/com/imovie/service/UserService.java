@@ -2,10 +2,12 @@ package com.imovie.service;
 
 import com.imovie.bean.UsrBean;
 import com.imovie.dao.UsrDAO;
+import com.imovie.util.ImageUtil;
 import com.imovie.util.SpringBeanUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @Author: zym
@@ -49,10 +51,10 @@ public class UserService {
      * @param id 用户唯一识别ID
      * @return java.lang.String
      **/
-    public static int modifyInfo(String name, String head, String gender, String profile, String id) {
+    public static int modifyInfo(String name, String head, String gender, String profile, String id, MultipartFile headImage) {
         UsrBean usrBean = new UsrBean();
         usrBean.setUsrName(name);
-        usrBean.setUsrHead(head);
+        usrBean.setUsrHead(ImageUtil.saveImageFile(headImage));
         usrBean.setUsrGender(gender);
         usrBean.setUsrProfile(profile);
         usrBean.setUsrId(id);

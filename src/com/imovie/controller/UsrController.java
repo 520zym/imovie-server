@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @Author: zym
@@ -40,11 +41,13 @@ public class UsrController {
      * @param gender 性别
      * @param profile 用户简介
      * @param id 用户唯一识别ID
+     * @param headImage 用户头像图片
      * @return java.lang.String
      **/
     @ResponseBody
     @RequestMapping(value = "/user/modify")
-    public String modifyInfo(@RequestParam String name, @RequestParam String head, @RequestParam String gender, @RequestParam String profile, @RequestParam String id) {
-        return "{\"result\": \"" + UserService.modifyInfo(name, head, gender, profile, id) + "\"}";
+    public String modifyInfo(@RequestParam String name, @RequestParam String head, @RequestParam String gender,
+                             @RequestParam String profile, @RequestParam String id, MultipartFile headImage) {
+        return "{\"result\": \"" + UserService.modifyInfo(name, head, gender, profile, id, headImage) + "\"}";
     }
 }

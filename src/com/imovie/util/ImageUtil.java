@@ -1,5 +1,6 @@
 package com.imovie.util;
 
+import com.imovie.bean.DataPrepare;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +19,7 @@ import java.util.List;
  **/
 public class ImageUtil {
     private static final Logger LOGGER = LogManager.getLogger(ImageUtil.class);
+    private static DataPrepare dataPrepare = (DataPrepare) SpringBeanUtil.getBean("dataPrepare");
 
     /**
      * 获取文件新的名字
@@ -41,19 +43,18 @@ public class ImageUtil {
     public static String saveImageFile(MultipartFile imageFile) {
         if (imageFile != null) {
             String fileName = getNewName(imageFile);
-            //TODO 图片存储路径需要更改
-            String filePath = "E:\\CodeProject\\IdeaProjects\\Java\\imovie\\web\\WEB-INF\\VIEW\\assets\\images\\" + fileName;
+            String filePath = dataPrepare.getImagePath() + fileName;
             try {
                 //存储文件
                 imageFile.transferTo(new File(filePath));
             } catch (IOException e) {
                 LOGGER.error("文件存储失败! filePath=[" + filePath + "].");
                 e.printStackTrace();
-                return "0";
+                return "error.jpg";
             }
             return fileName;
         }
-        return "0";
+        return "error.jpg";
     }
 
     /**
@@ -66,9 +67,7 @@ public class ImageUtil {
     public static List<String> saveImageFileList(List<MultipartFile> imageFileList) {
         List<String> imageNames = new ArrayList<>();
         for (MultipartFile imageFile : imageFileList) {
-            String fileNewName = saveImageFile(imageFile);
-            LOGGER.debug("save image[" + fileNewName + "]");
-            imageNames.add(fileNewName);
+            imageNames.add(saveImageFile(imageFile));
         }
         return imageNames;
     }
