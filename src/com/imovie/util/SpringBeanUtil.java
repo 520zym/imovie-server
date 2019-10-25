@@ -16,7 +16,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  * @Version: 1.0
  **/
 public class SpringBeanUtil implements ApplicationContextAware {
-    private static final Logger logger = LogManager.getLogger(SpringBeanUtil.class);
+    private static final Logger LOGGER = LogManager.getLogger(SpringBeanUtil.class);
     private static ApplicationContext context;
 
     static {
@@ -24,7 +24,7 @@ public class SpringBeanUtil implements ApplicationContextAware {
             context = new ClassPathXmlApplicationContext("applicationContext.xml");
         } catch (Exception e) {
             e.printStackTrace();
-            logger.warn("Now project dir path is: " + System.getProperty("user.dir"));
+            LOGGER.warn("Now project dir path is: " + System.getProperty("user.dir"));
             context = new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
         }
     }

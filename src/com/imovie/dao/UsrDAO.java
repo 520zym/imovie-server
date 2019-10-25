@@ -18,7 +18,7 @@ public interface UsrDAO {
     int usrRegister(UsrBean usrBean);
     
     /**
-     * 修改个人信息
+     * 修改个人信息, 不包括头像
      * @author zym
      * @date 2019/10/21 11:50
      * @param usrBean 用户信息实体

@@ -5,7 +5,6 @@ import com.imovie.dao.UsrDAO;
 import com.imovie.util.SpringBeanUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,8 +16,8 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class UserService {
-    private static final Logger logger = LogManager.getLogger(UserService.class);
-    private static final ApplicationContext APPLICATION_CONTEXT = SpringBeanUtil.getContext();
+    private static final Logger LOGGER = LogManager.getLogger(UserService.class);
+    private static final UsrDAO USR_DAO = SpringBeanUtil.getContext().getBean(UsrDAO.class);
 
     /**
      * 注册
@@ -36,8 +35,8 @@ public class UserService {
         usrBean.setUsrName(name);
         usrBean.setUsrHead(head);
         usrBean.setUsrGender(gender);
-        logger.info("uid=[" + uid + "], name=[" + name + "], head=[" + head + "], gender=[" + gender + "].");
-        return APPLICATION_CONTEXT.getBean(UsrDAO.class).usrRegister(usrBean);
+        LOGGER.info("uid=[" + uid + "], name=[" + name + "], head=[" + head + "], gender=[" + gender + "].");
+        return USR_DAO.usrRegister(usrBean);
     }
 
     /**
@@ -45,7 +44,6 @@ public class UserService {
      * @author zym
      * @date 2019/10/21 11:48
      * @param name 昵称
-     * @param head 头像链接
      * @param gender 性别
      * @param profile 用户简介
      * @param id 用户唯一识别ID
@@ -58,7 +56,7 @@ public class UserService {
         usrBean.setUsrGender(gender);
         usrBean.setUsrProfile(profile);
         usrBean.setUsrId(id);
-        logger.info("profile=[" + profile + "], name=[" + name + "], head=[" + head + "], gender=[" + gender + "], id=[" + id  +"].");
-        return APPLICATION_CONTEXT.getBean(UsrDAO.class).modifyInfo(usrBean);
+        LOGGER.info("profile=[" + profile + "], name=[" + name + "], head=[" + head + "], gender=[" + gender + "], id=[" + id  +"].");
+        return USR_DAO.modifyInfo(usrBean);
     }
 }

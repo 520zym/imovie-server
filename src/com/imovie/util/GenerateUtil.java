@@ -8,7 +8,17 @@ package com.imovie.util;
  * @Version: 1.0
  **/
 public class GenerateUtil {
-    public static String getActId() {
-        return "";
+    public static String nullToZero(String argument) {
+        if (argument == null) {
+            return "0";
+        }
+        return argument;
+    }
+
+    public static String nullToBlank(String argument) {
+        if (argument == null) {
+            return "";
+        }
+        return argument;
     }
 }
