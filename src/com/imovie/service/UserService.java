@@ -61,4 +61,42 @@ public class UserService {
         LOGGER.info("profile=[" + profile + "], name=[" + name + "], head=[" + head + "], gender=[" + gender + "], id=[" + id  +"].");
         return USR_DAO.modifyInfo(usrBean);
     }
+
+    /**
+     * 查看某人信息
+     * @author zym
+     * @date 2019/10/26 14:52
+     * @param uid 被查看信息的用户的id
+     * @return String
+     **/
+    public static UsrBean getUsrInfo(String uid) {
+        LOGGER.info("查找用户 [" + uid + "] 的信息...");
+        return USR_DAO.getUsrInfo(uid);
+    }
+
+    /**
+     * 关注操作
+     * @author zym
+     * @date 2019/10/26 14:55
+     * @param fanId 粉丝ID
+     * @param starId 被关注者ID
+     * @return int
+     **/
+    public static int starUsr(String fanId, String starId) {
+        LOGGER.info("用户 [" + fanId + "] 关注了用户 [" + starId + "]...");
+        return USR_DAO.starUsr(fanId, starId);
+    }
+
+    /**
+     * 取消关注
+     * @author zym
+     * @date 2019/10/26 17:08
+     * @param fanId 取消
+     * @param starId 被取消
+     * @return int
+     **/
+    public static int unStarUsr(String fanId, String starId) {
+        LOGGER.info("用户 [" + fanId + "] 取消了对 [" + starId + "] 的关注.");
+        return USR_DAO.unStarUsr(fanId, starId);
+    }
 }

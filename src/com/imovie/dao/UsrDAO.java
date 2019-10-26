@@ -25,4 +25,33 @@ public interface UsrDAO {
      * @return int
      **/
     int modifyInfo(UsrBean usrBean);
+
+    /**
+     * 查看某人信息
+     * @author zym
+     * @date 2019/10/26 14:47
+     * @param uid 被查看信息的用户的id
+     * @return String
+     **/
+    UsrBean getUsrInfo(String uid);
+
+    /**
+     * 关注某人
+     * @author zym
+     * @date 2019/10/26 15:04
+     * @param fanId 关注者
+     * @param starId 被关注者
+     * @return int
+     **/
+    int starUsr(String fanId, String starId);
+
+    /**
+     * 取消关注
+     * @author zym
+     * @date 2019/10/26 17:00
+     * @param fanId 取消
+     * @param starId 被取消
+     * @return int
+     **/
+    int unStarUsr(String fanId, String starId);
 }

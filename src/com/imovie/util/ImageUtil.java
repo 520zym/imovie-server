@@ -34,7 +34,7 @@ public class ImageUtil {
     }
 
     /**
-     * 存储文件, 并返回文件新的名字; 存储不成功, 则返回 0
+     * 存储文件, 并返回文件新的名字
      * @author zym
      * @date 2019/10/25 21:00
      * @param imageFile 上传的图片

@@ -21,7 +21,7 @@ import java.util.List;
 @Controller
 public class ActivityController {
     /**
-     * 发布动态 (参数缺少 ImageUrls)
+     * 发布动态
      * @author zym
      * @date 2019/10/23 18:08
      * @param actType 动态类型
