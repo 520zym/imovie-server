@@ -3,6 +3,7 @@ package com.imovie.bean;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Author: zym
@@ -19,12 +20,8 @@ public class MovieBean implements Serializable {
     private String movieId;
     /**电影名称*/
     private String movieName;
-    /**电影导演*/
-    private String movieDirectors;
-    /**电影编剧*/
-    private String movieWriters;
-    /**主演*/
-    private String movieActors;
+    /**电影海报*/
+    private String movieImage;
     /**电影类型*/
     private String movieType;
     /**拍摄国家地区*/
@@ -49,6 +46,12 @@ public class MovieBean implements Serializable {
     private String movieFeeling;
     /**电影热度值*/
     private String movieReputation;
+    /**电影导演*/
+    private List<String> movieDirectors;
+    /**电影编剧*/
+    private List<String> movieWriters;
+    /**主演*/
+    private List<String> movieActors;
 
     public String getMovieId() {
         return movieId;
@@ -66,27 +69,35 @@ public class MovieBean implements Serializable {
         this.movieName = movieName;
     }
 
-    public String getMovieDirectors() {
+    public String getMovieImage() {
+        return movieImage;
+    }
+
+    public void setMovieImage(String movieImage) {
+        this.movieImage = movieImage;
+    }
+
+    public List<String> getMovieDirectors() {
         return movieDirectors;
     }
 
-    public void setMovieDirectors(String movieDirectors) {
+    public void setMovieDirectors(List<String> movieDirectors) {
         this.movieDirectors = movieDirectors;
     }
 
-    public String getMovieWriters() {
+    public List<String> getMovieWriters() {
         return movieWriters;
     }
 
-    public void setMovieWriters(String movieWriters) {
+    public void setMovieWriters(List<String> movieWriters) {
         this.movieWriters = movieWriters;
     }
 
-    public String getMovieActors() {
+    public List<String> getMovieActors() {
         return movieActors;
     }
 
-    public void setMovieActors(String movieActors) {
+    public void setMovieActors(List<String> movieActors) {
         this.movieActors = movieActors;
     }
 

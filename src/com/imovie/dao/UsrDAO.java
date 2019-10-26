@@ -17,6 +17,13 @@ public interface UsrDAO {
      * @return int
      **/
     int usrRegister(UsrBean usrBean);
+
+    /**
+     * 获取新生成的ID
+     * @author zym
+     * @date 2019/10/26 23:19
+     * @return String
+     **/
     String getNewId();
     
     /**

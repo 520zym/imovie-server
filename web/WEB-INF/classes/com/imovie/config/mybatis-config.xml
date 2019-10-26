@@ -9,11 +9,13 @@
         <typeAlias type="com.imovie.bean.UsrBean" alias="usrBean"/>
         <typeAlias type="com.imovie.bean.ActivityBean" alias="activityBean"/>
         <typeAlias type="com.imovie.bean.MovieBean" alias="movieBean"/>
+        <typeAlias type="com.imovie.bean.CelebrityBean" alias="celebrityBean"/>
     </typeAliases>
 
     <mappers>
         <mapper resource="com/imovie/mapper/UsrDAO.xml"/>
         <mapper resource="com/imovie/mapper/ActivityDAO.xml"/>
         <mapper resource="com/imovie/mapper/MovieDAO.xml"/>
+        <mapper resource="com/imovie/mapper/CelebrityDAO.xml"/>
     </mappers>
 </configuration>

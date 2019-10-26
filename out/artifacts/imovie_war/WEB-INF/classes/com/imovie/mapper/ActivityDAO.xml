@@ -7,7 +7,7 @@
         <result column="act_type" property="actType" javaType="String"/>
         <result column="act_usr" property="actUsr" javaType="String"/>
         <result column="act_content" property="actContent" javaType="String"/>
-        <result column="act_imageRef" property="actImageNum" javaType="String"/>
+        <result column="act_imageNum" property="actImageNum" javaType="String"/>
         <result column="act_movie" property="actMovie" javaType="String"/>
         <result column="act_label" property="actLabel" javaType="String"/>
         <result column="shareEgg" property="shareNum" javaType="String"/>
@@ -32,8 +32,11 @@
     </insert>
 
     <select id="getActivities" resultMap="ACTIVITY">
-        select act_id, act_type, act_usr, act_content, act_imageNum, act_movie, act_label, shareEgg, chatStory, likeFeeling, postTime
-        from activity, reputation where act_id = referID
+        select * from activity_view
         order by ${param3} desc limit ${param1}, ${param2}
+    </select>
+    
+    <select id="getImages" resultType="java.lang.String">
+        select image_url from actimages where act_id = #{actId};
     </select>
 </mapper>

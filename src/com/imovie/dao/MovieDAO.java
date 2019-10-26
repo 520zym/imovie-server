@@ -22,4 +22,14 @@ public interface MovieDAO {
      * @return List<MovieBean>
      **/
     List<MovieBean> getMovies(String begin, String limit);
+
+    /**
+     * 获取某部电影相应职位的人员ID
+     * @author zym
+     * @date 2019/10/26 21:48
+     * @param movieId 电影ID
+     * @param type 人物职位
+     * @return list
+     **/
+    List<String> getCelebrities(String movieId, String type);
 }

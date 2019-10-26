@@ -77,7 +77,7 @@ public class ActivityService {
      * @param begin 返回List第一个元素在数据表中的下标
      * @param offset 获取的动态条数
      * @param orderColumn 排序列名
-     * @return List<ActivityBean>
+     * @return Map<String, ActivityBean>
      **/
     public static Map<String, ActivityBean> getActivities(String begin, String offset, String orderColumn) {
         Map<String, ActivityBean> activityBeanMap = new LinkedHashMap<>();

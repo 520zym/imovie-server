@@ -2,12 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.imovie.dao.MovieDAO">
-    <select id="getMovies" resultType="movieBean">
-        select movieID, movieName, movieType, movieCountry,
-               movieLanguage, movieDate, movieCount, movieTime, movieAlias, movieProfile,
-               shareEgg, chatStory, likeFeeling, reputation
-        from movieinfo, reputation
-        where movieID=referID
+    <resultMap id="MOVIE" type="movieBean">
+        <id column="movieID" property="movieId" javaType="String"/>
+        <result column="movieName" property="movieName" javaType="String"/>
+        <result column="image_url" property="movieImage" javaType="String"/>
+        <result column="movieType" property="movieType" javaType="String"/>
+        <result column="movieCountry" property="movieCountry" javaType="String"/>
+        <result column="movieLanguage" property="movieLanguage" javaType="String"/>
+        <result column="movieDate" property="movieDate" javaType="String"/>
+        <result column="movieCount" property="movieCount" javaType="String"/>
+        <result column="movieTime" property="movieTime" javaType="String"/>
+        <result column="movieAlias" property="movieAlias" javaType="String"/>
+        <result column="movieProfile" property="movieProfile" javaType="String"/>
+        <result column="shareEgg" property="movieEgg" javaType="String"/>
+        <result column="chatStory" property="movieStory" javaType="String"/>
+        <result column="likeFeeling" property="movieFeeling" javaType="String"/>
+        <result column="reputation" property="movieReputation" javaType="String"/>
+    </resultMap>
+
+    <select id="getMovies" resultMap="MOVIE">
+        select * from moviebriefinfo
         order by reputation desc limit ${param1}, ${param2}
+    </select>
+
+    <select id="getCelebrities" resultType="java.lang.String">
+        select ship_staff from moviestaff where ship_movie=#{param1} AND ship_type=#{param2};
     </select>
 </mapper>
