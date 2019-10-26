@@ -16,6 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  **/
 @Controller
 public class CelebrityController {
+    /**
+     * 获取职员信息
+     * @author zym
+     * @date 2019/10/26 23:30
+     * @param celebrityId 职员ID
+     * @return com.imovie.bean.CelebrityBean
+     **/
     @ResponseBody
     @RequestMapping(value = "/celebrity/detail")
     public CelebrityBean getCelebrityInfo(@RequestParam String celebrityId) {

@@ -27,6 +27,7 @@ public class CelebrityService {
      * @return com.imovie.bean.CelebrityBean
      **/
     public static CelebrityBean getCelebrityInfo(String celebrityId) {
+        LOGGER.info("正在获取职员 [" + celebrityId + "] 的信息...");
         return CELEBRITY_DAO.getCelebrityInfo(celebrityId);
     }
 }
