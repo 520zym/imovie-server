@@ -16,6 +16,17 @@ public class DataPrepare implements Serializable {
     private static final long serialVersionUID = 3775167448619601200L;
 
     private String imagePath;
+    private int idLength;
+
+    /**为动态中的图片服务*/
+
+    public int getIdLength() {
+        return idLength;
+    }
+
+    public void setIdLength(int idLength) {
+        this.idLength = idLength;
+    }
 
     public String getImagePath() {
         return imagePath;

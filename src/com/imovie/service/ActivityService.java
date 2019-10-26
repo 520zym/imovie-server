@@ -82,8 +82,11 @@ public class ActivityService {
     public static Map<String, ActivityBean> getActivities(String begin, String offset, String orderColumn) {
         Map<String, ActivityBean> activityBeanMap = new LinkedHashMap<>();
         List<ActivityBean> activityBeanList = ACTIVITY_DAO.getActivities(begin, offset, orderColumn);
+
         for (ActivityBean activity: activityBeanList) {
-            activityBeanMap.put(activity.getActId(), activity);
+            String actId = activity.getActId();
+            activity.setImageFiles(ACTIVITY_DAO.getImages(actId));
+            activityBeanMap.put(actId, activity);
         }
 
         LOGGER.info("activityList's size is [" + activityBeanList.size() + "]");

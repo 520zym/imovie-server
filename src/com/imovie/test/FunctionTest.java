@@ -1,8 +1,7 @@
 package com.imovie.test;
 
-import com.imovie.service.ActivityService;
+import com.imovie.service.UserService;
 
-import java.util.Arrays;
 import java.util.UUID;
 
 /**
@@ -15,10 +14,16 @@ import java.util.UUID;
 public class FunctionTest {
     public static void main(String[] args) {
         generateId();
+        testRegister();
     }
 
     private static void generateId() {
         System.out.println(UUID.randomUUID().toString());
         System.out.println(System.currentTimeMillis());
+    }
+
+    private static void testRegister() {
+        String newId = UserService.register("123456789", "TestTestTest", "00.jpg", "1");
+        System.out.println(newId);
     }
 }

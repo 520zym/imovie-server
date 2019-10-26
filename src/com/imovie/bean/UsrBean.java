@@ -25,6 +25,26 @@ public class UsrBean implements Serializable {
     private String usrEggs;
     private String usrStories;
     private String usrFeelings;
+    /**关注量*/
+    private String usrFollow;
+    /**被关注量*/
+    private String usrFollowed;
+
+    public String getUsrFollow() {
+        return usrFollow;
+    }
+
+    public void setUsrFollow(String usrFollow) {
+        this.usrFollow = usrFollow;
+    }
+
+    public String getUsrFollowed() {
+        return usrFollowed;
+    }
+
+    public void setUsrFollowed(String usrFollowed) {
+        this.usrFollowed = usrFollowed;
+    }
 
     public String getUsrId() {
         return usrId;

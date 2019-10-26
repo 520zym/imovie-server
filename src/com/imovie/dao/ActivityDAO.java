@@ -45,6 +45,15 @@ public interface ActivityDAO {
      **/
     List<ActivityBean> getActivities(String begin, String offset, String orderColumn);
 
+    /**
+     * 根据动态的ID获取图片
+     * @author zym
+     * @date 2019/10/26 20:43
+     * @param actId 动态的ID
+     * @return list
+     **/
+    List<String> getImages(String actId);
+
     //按照热度值从大到小获取所有动态(根据前台刷新或请求的需求, 每次15条)
     //List<ActivityBean> getAllActByReputation();
 

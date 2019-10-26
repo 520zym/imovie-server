@@ -7,9 +7,30 @@
         values (#{usrUid}, #{usrName}, #{usrHead}, #{usrGender});
     </insert>
 
+    <select id="getNewId" resultType="string">
+        select last_insert_id();
+    </select>
+
     <update id="modifyInfo" parameterType="usrBean">
         update usrinfo
         set usr_name = #{usrName}, usr_head = #{usrHead}, usr_gender = #{usrGender}, usr_profile = #{usrProfile}
         where usr_id = #{usrId};
     </update>
+
+    <select id="getUsrInfo" resultType="usrBean">
+        select * from usrbriefinfo where usr_id=#{usrId};
+    </select>
+
+    <select id="getUsrInfoByUid" resultType="usrBean">
+        select * from usrbriefinfo where usr_uid=#{uid};
+    </select>
+    
+    <insert id="starUsr">
+        insert into usrship (fanId, starId)
+        values (#{fanId}, #{starId});
+    </insert>
+
+    <delete id="unStarUsr">
+        delete from usrship where fanId = #{param1} AND starId = #{param2};
+    </delete>
 </mapper>

@@ -2,6 +2,7 @@ package com.imovie.service;
 
 import com.imovie.bean.UsrBean;
 import com.imovie.dao.UsrDAO;
+import com.imovie.util.ConstantUtil;
 import com.imovie.util.ImageUtil;
 import com.imovie.util.SpringBeanUtil;
 import org.apache.logging.log4j.LogManager;
@@ -31,14 +32,17 @@ public class UserService {
      * @param gender 性别
      * @Return: int
      **/
-    public static int register(String uid, String name, String head, String gender) {
+    public static String register(String uid, String name, String head, String gender) {
         UsrBean usrBean = new UsrBean();
         usrBean.setUsrUid(uid);
         usrBean.setUsrName(name);
         usrBean.setUsrHead(head);
         usrBean.setUsrGender(gender);
         LOGGER.info("uid=[" + uid + "], name=[" + name + "], head=[" + head + "], gender=[" + gender + "].");
-        return USR_DAO.usrRegister(usrBean);
+        if (USR_DAO.usrRegister(usrBean) > 0) {
+            return USR_DAO.getNewId();
+        }
+        return uid;
     }
 
     /**
@@ -71,6 +75,9 @@ public class UserService {
      **/
     public static UsrBean getUsrInfo(String uid) {
         LOGGER.info("查找用户 [" + uid + "] 的信息...");
+        if (uid.length() > ConstantUtil.ID_LENGTH) {
+            return USR_DAO.getUsrInfoByUid(uid);
+        }
         return USR_DAO.getUsrInfo(uid);
     }
 

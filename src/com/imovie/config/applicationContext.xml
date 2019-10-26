@@ -20,6 +20,7 @@
     <!--  配置文件存放路径  -->
     <bean id="dataPrepare" class="com.imovie.bean.DataPrepare">
         <property name="imagePath" value="${image.path}"/>
+        <property name="idLength" value="${length.id}"/>
     </bean>
 
     <!--  数据库配置  -->

@@ -7,6 +7,10 @@
         values (#{usrUid}, #{usrName}, #{usrHead}, #{usrGender});
     </insert>
 
+    <select id="getNewId" resultType="string">
+        select last_insert_id();
+    </select>
+
     <update id="modifyInfo" parameterType="usrBean">
         update usrinfo
         set usr_name = #{usrName}, usr_head = #{usrHead}, usr_gender = #{usrGender}, usr_profile = #{usrProfile}
@@ -14,7 +18,11 @@
     </update>
 
     <select id="getUsrInfo" resultType="usrBean">
-        select * from usrinfo where usr_id = #{uid};
+        select * from usrbriefinfo where usr_id=#{usrId};
+    </select>
+
+    <select id="getUsrInfoByUid" resultType="usrBean">
+        select * from usrbriefinfo where usr_uid=#{uid};
     </select>
     
     <insert id="starUsr">

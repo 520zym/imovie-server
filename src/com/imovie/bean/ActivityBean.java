@@ -3,6 +3,7 @@ package com.imovie.bean;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Author: zym
@@ -25,6 +26,7 @@ public class ActivityBean implements Serializable {
     private String actContent;
     /**图片参考索引值, 在表imageRef中, 每个imageRef对应一组图片的url*/
     private String actImageNum;
+    private List<String> imageFiles;
     /**此次动态所对应的电影的movie_id*/
     private String actMovie;
     /**此次动态的分类标签, 与act_type相对应*/
@@ -122,6 +124,14 @@ public class ActivityBean implements Serializable {
 
     public void setActImageNum(String actImageNum) {
         this.actImageNum = actImageNum;
+    }
+
+    public List<String> getImageFiles() {
+        return imageFiles;
+    }
+
+    public void setImageFiles(List<String> imageFiles) {
+        this.imageFiles = imageFiles;
     }
 
     public String getActMovie() {
