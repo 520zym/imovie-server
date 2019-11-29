@@ -2,6 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.imovie.dao.UsrDAO">
+    <resultMap id="USR" type="usrBean">
+        <result column="usr_id" property="usrId" javaType="String"/>
+        <result column="usr_uid" property="usrUid" javaType="String"/>
+        <result column="usr_name" property="usrName" javaType="String"/>
+        <result column="usr_head" property="usrHead" javaType="String"/>
+        <result column="usr_gender" property="usrGender" javaType="String"/>
+        <result column="usr_profile" property="usrProfile" javaType="String"/>
+        <result column="usr_reg" property="usrReg" javaType="String"/>
+        <result column="usr_eggs" property="usrEggs" javaType="String"/>
+        <result column="usr_stories" property="usrStories" javaType="String"/>
+        <result column="usr_feelings" property="usrFeelings" javaType="String"/>
+        <result column="usr_follow" property="usrFollow" javaType="String"/>
+        <result column="usr_followed" property="usrFollowed" javaType="String"/>
+    </resultMap>
+
     <insert id="usrRegister" parameterType="usrBean">
         insert into usrinfo (usr_uid, usr_name, usr_head, usr_gender)
         values (#{usrUid}, #{usrName}, #{usrHead}, #{usrGender});
@@ -17,11 +32,11 @@
         where usr_id = #{usrId};
     </update>
 
-    <select id="getUsrInfo" resultType="usrBean">
+    <select id="getUsrInfo" resultMap="USR">
         select * from usrbriefinfo where usr_id=#{usrId};
     </select>
 
-    <select id="getUsrInfoByUid" resultType="usrBean">
+    <select id="getUsrInfoByUid" resultMap="USR">
         select * from usrbriefinfo where usr_uid=#{uid};
     </select>
     
