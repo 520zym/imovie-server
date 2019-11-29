@@ -39,3 +39,24 @@
 ## 2. 待解决问题
 
 **查看 TODO**
+
+## 3. 目录结构说明
+
+- [ ] lib: 项目引用的jar包
+- [ ] out: 编译输出文件
+- [ ] src: 源代码文件
+    - [ ] com.imovie: 源代码
+        - [ ] bean: 实体类
+        - [ ] config: 项目配置文件
+        - [ ] controller: 控制器
+        - [ ] dao: Database Access Object
+        - [ ] mapper: Mybatis识别
+        - [ ] service: 服务功能核心代码
+        - [ ] util: 工具类
+    - [ ] mock: 数据模拟json文件
+- [ ] web: 服务器端使用的文件
+    - [ ] WEB_INF:
+        - [ ] classes: 编译输出文件
+        - [ ] lib: jar包
+        - [ ] VIEW: 视图文件
+        - [ ] web.xml: Spring MVC配置文件
